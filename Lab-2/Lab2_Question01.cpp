@@ -31,7 +31,7 @@ class SLList {
  * elements in the linked list.
  */
 
-	private:
+	public:
 		Node* head;
 		Node* tail;
 		int size;
@@ -51,6 +51,8 @@ class SLList {
 		int removeAt(int i);
 		int countItems();
 		void display();
+		void rdisplay(Node* p);
+		void rrdisplay(Node* p);
 };
 
 void SLList::insert(int d) {
@@ -183,6 +185,27 @@ void SLList::display() {
 	cout << "NULL" << endl;
 }
 
+void SLList::rdisplay(Node* p) {
+	if (p->next == NULL) {
+		cout << p->data << endl;
+		cout << "End of list." << endl;
+		return;
+	}
+
+	cout << p->data << endl;
+	rdisplay(p->next);
+}
+
+void SLList::rrdisplay(Node* p) {
+	if (p->next == NULL) {
+		cout << p->data << endl;
+		return;
+	}
+
+	rrdisplay(p->next);
+	cout << p->data << endl;
+}
+
 int main() {
 /* 
  * main() function to test the code.
@@ -192,10 +215,8 @@ int main() {
 	for (int i=0; i<8; ++i) {
 		l1.insert(i+1);
 	}
-	l1.insertAt(5,0);
-	l1.removeAt(5);
-	l1.display();
-	cout << l1.countItems() << endl;
+
+	l1.rrdisplay(l1.head);
 
 	return 0;
 }
