@@ -212,11 +212,8 @@ int main() {
  */
 
 	SLList l1;
-	for (int i=0; i<8; ++i) {
-		l1.insert(i+1);
-	}
 
-	l1.rrdisplay(l1.head);
+	l1.rdisplay(l1.head);
 
 	return 0;
 }
